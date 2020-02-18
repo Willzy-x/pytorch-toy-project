@@ -1,31 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
-
-
-# Build ResNet basic block...
-class ResidualBlock(nn.Module):
-    """docstring for ResidualBlock."""
-    def __init__(self, inchannel, outchannel, stride=1):
-        super(ResidualBlock, self).__init__()
-        self.left = nn.Sequential(
-            nn.Conv2d(inchannel, outchannel, kernel_size=3, stride=stride, padding=1, bias=False),
-            nn.BatchNorm2d(outchannel),
-            nn.ReLU(inplace=True),
-            nn.Conv2d(outchannel, outchannel, kernel_size=3, stride=1, padding=1, bias=False),
-            nn.BatchNorm2d(outchannel)
-        )
-        self.shortcut = nn.Sequential()
-        if stride != 1 or inchannel != outchannel:
-            self.shortcut = nn.Sequential(
-                nn.Conv2d(inchannel, outchannel, kernel_size=1, stride=stride, bias=False),
-                nn.BatchNorm2d(outchannel)
-            )
-
-    def forward(self, x):
-        out = self.left(x)
-        out += self.shortcut(x)
-        out = F.relu(out)
-        return out
+from models.modules import resblock
 
 
 # Build the ResNet...
@@ -36,8 +11,8 @@ class ResNet(nn.Module):
         # self.arg = arg
         self.inchannel = 64
         self.conv1 = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False),
-            nn.BatchNorm2d(64),
+            nn.Conv2d(3, self.inchannel, kernel_size=3, stride=1, padding=1, bias=False),
+            nn.BatchNorm2d(self.inchannel),
             nn.ReLU()
         )
 
@@ -68,8 +43,4 @@ class ResNet(nn.Module):
 
 
 def getDefaultResNet():
-    return ResNet(ResidualBlock)
-
-
-def getDCMResNet():
-    pass
+    return ResNet(resblock.ResidualBlock)

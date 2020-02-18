@@ -8,14 +8,18 @@ import requests
 import os
 import numpy as np
 from models.resnet import getDefaultResNet
+from models.dcmresnet import getDefaultDcmResNet
+from models.dcmnet import getDefaultDCMNet
+from models.alexnet import getDefaultAlexNet
 from train_and_test import train, test
 
-BATCH_SIZE = 200
+BATCH_SIZE = 256
 NUM_OF_WORKERS = 0
 LEARNING_RATE = 1e-3
 WEIGHT_DECAY = 1e-5
 NUM_OF_EPOCHS = 100
-VISUAL_EVERY_EPOCH = 1
+VISUAL_EVERY_EPOCH = 10
+STEP_SIZE = 25
 SAVE_DIR = "./results"
 
 RGB_CYAN = (0, 238, 238)
@@ -32,16 +36,16 @@ transform = ts.Compose(
 
 
 def main():
-    viz = Visdom(server='http://192.168.1.108', port=8097, env='main')
+    viz = Visdom(server='http://192.168.1.108', port=8097, env='alexnet')
     assert viz.check_connection()
 
     train_set = ds.CIFAR10('./data', train=True, transform=transform, download=True)
     train_loader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True, num_workers=NUM_OF_WORKERS)
 
     test_set = ds.CIFAR10('./data', train=False, transform=transform, download=True)
-    test_loader = DataLoader(test_set, batch_size=BATCH_SIZE, shuffle=True, num_workers=NUM_OF_WORKERS)
+    test_loader = DataLoader(test_set, batch_size=BATCH_SIZE * 2, shuffle=True, num_workers=NUM_OF_WORKERS)
 
-    net = getDefaultResNet().cuda()
+    net = getDefaultAlexNet("dcm").cuda()
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=LEARNING_RATE, weight_decay=WEIGHT_DECAY)
 
@@ -55,7 +59,9 @@ def main():
     train_loss_plot, test_loss_plot = np.array([]), np.array([])
     train_acc_plot, test_acc_plot = np.array([]), np.array([])
 
+    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=STEP_SIZE, gamma=0.1)
     for i in range(1, NUM_OF_EPOCHS + 1):
+        print("---------------------------------------------------------------------------------------")
         train_loss, train_acc = train(i, net, optimizer, criterion, train_loader, train_file)
         train_loss_plot = np.append(train_loss_plot, train_loss)
         train_acc_plot = np.append(train_acc_plot, train_acc)
@@ -63,6 +69,9 @@ def main():
         test_loss, test_acc = test(i, net, criterion, test_loader, test_file)
         test_acc_plot = np.append(test_acc_plot, test_acc)
         test_loss_plot = np.append(test_loss_plot, test_loss)
+
+        scheduler.step(epoch=i)
+        print("---------------------------------------------------------------------------------------")
 
         if i % VISUAL_EVERY_EPOCH == 0:
             x_axis = range(1, i + 1)
