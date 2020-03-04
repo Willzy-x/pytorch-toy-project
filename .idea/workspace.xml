@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dfed408-ee64-4ca6-8b9c-85a6a779e67e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/ASUS_PC.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/dcmnet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/dcmresnet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/modules/resblock.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/modules/dcm.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/modules/dcm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/resnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/resnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/alexnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/alexnet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,18 +31,24 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\pytorch_toy_project\results\alexnetdcm1" />
-      <recent name="C:\pytorch_toy_project\results\alexnet" />
-      <recent name="C:\pytorch_toy_project\results\dcmresnet" />
-      <recent name="C:\pytorch_toy_project\models" />
-      <recent name="C:\deep_learning\models" />
+      <recent name="C:\pytorch_toy_project\results\CIFAR100_AlexNetDCM13" />
+      <recent name="C:\pytorch_toy_project\results\CIFAR100_AlexNet" />
+      <recent name="C:\pytorch_toy_project\results\CIFAR100_AlexNetDCM" />
+      <recent name="C:\pytorch_toy_project\results\FashionMNIST_AlexNet" />
+      <recent name="C:\pytorch_toy_project\results\alexnetdcm2" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -187,6 +189,13 @@
       <workItem from="1581745719078" duration="2241000" />
       <workItem from="1581756642341" duration="12745000" />
       <workItem from="1582015662118" duration="6661000" />
+      <workItem from="1582037737081" duration="4299000" />
+      <workItem from="1582959617001" duration="4661000" />
+      <workItem from="1583064194980" duration="2410000" />
+      <workItem from="1583157185066" duration="1713000" />
+      <workItem from="1583196850132" duration="12096000" />
+      <workItem from="1583281426622" duration="1632000" />
+      <workItem from="1583297339449" duration="9811000" />
     </task>
     <servers />
   </component>
@@ -215,30 +224,30 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1582027157666" />
-    <state width="938" height="274" key="GridCell.Tab.0.bottom" timestamp="1582028540480">
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom" timestamp="1583314642706">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="938" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1582028540480" />
-    <state width="938" height="274" key="GridCell.Tab.0.center" timestamp="1582028540480">
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1583314642706" />
+    <state width="1877" height="274" key="GridCell.Tab.0.center" timestamp="1583314642706">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="938" height="274" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1582028540480" />
-    <state width="938" height="274" key="GridCell.Tab.0.left" timestamp="1582028540480">
+    <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1583314642706" />
+    <state width="1877" height="274" key="GridCell.Tab.0.left" timestamp="1583314642706">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="938" height="274" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1582028540480" />
-    <state width="938" height="274" key="GridCell.Tab.0.right" timestamp="1582028540480">
+    <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1583314642706" />
+    <state width="1877" height="274" key="GridCell.Tab.0.right" timestamp="1583314642706">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="938" height="274" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1582028540480" />
+    <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1583314642706" />
     <state x="461" y="182" key="SettingsEditor" timestamp="1582027160960">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="461" y="182" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1582027160960" />
-    <state x="616" y="364" key="com.intellij.ide.util.TipDialog" timestamp="1582037736950">
+    <state x="616" y="364" key="com.intellij.ide.util.TipDialog" timestamp="1583297541702">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="616" y="364" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1582037736950" />
+    <state x="616" y="364" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1583297541702" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/deep_learning$dcm.coverage" NAME="dcm Coverage Results" MODIFIED="1581579769087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -246,6 +255,6 @@
     <SUITE FILE_PATH="coverage/pytorch_toy_project$dcm__1_.coverage" NAME="dcm (1) Coverage Results" MODIFIED="1581768470083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/modules" />
     <SUITE FILE_PATH="coverage/pytorch_toy_project$dcmnet.coverage" NAME="dcmnet Coverage Results" MODIFIED="1581769066128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/deep_learning$main.coverage" NAME="main Coverage Results" MODIFIED="1581680411863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pytorch_toy_project$main.coverage" NAME="main Coverage Results" MODIFIED="1582019771508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pytorch_toy_project$main.coverage" NAME="main Coverage Results" MODIFIED="1583301620769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

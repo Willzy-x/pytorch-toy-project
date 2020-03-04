@@ -17,10 +17,12 @@ BATCH_SIZE = 256
 NUM_OF_WORKERS = 0
 LEARNING_RATE = 1e-3
 WEIGHT_DECAY = 1e-5
-NUM_OF_EPOCHS = 100
-VISUAL_EVERY_EPOCH = 10
-STEP_SIZE = 25
+NUM_OF_EPOCHS = 200
+VISUAL_EVERY_EPOCH = 50
+STEP_SIZE = 70
 SAVE_DIR = "./results"
+INPUT_CHANNEL = 3
+NUM_CLASS = 100
 
 RGB_CYAN = (0, 238, 238)
 RGB_MAGENTA = (238, 0, 238)
@@ -36,16 +38,16 @@ transform = ts.Compose(
 
 
 def main():
-    viz = Visdom(server='http://192.168.1.108', port=8097, env='alexnet')
+    viz = Visdom(server='http://192.168.1.108', port=8097, env='cifar100')
     assert viz.check_connection()
 
-    train_set = ds.CIFAR10('./data', train=True, transform=transform, download=True)
+    train_set = ds.CIFAR100('./data', train=True, transform=transform, download=True)
     train_loader = DataLoader(train_set, batch_size=BATCH_SIZE, shuffle=True, num_workers=NUM_OF_WORKERS)
 
-    test_set = ds.CIFAR10('./data', train=False, transform=transform, download=True)
+    test_set = ds.CIFAR100('./data', train=False, transform=transform, download=True)
     test_loader = DataLoader(test_set, batch_size=BATCH_SIZE * 2, shuffle=True, num_workers=NUM_OF_WORKERS)
 
-    net = getDefaultAlexNet("dcm").cuda()
+    net = getDefaultAlexNet(INPUT_CHANNEL, NUM_CLASS, "dcm").cuda()
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(net.parameters(), lr=LEARNING_RATE, weight_decay=WEIGHT_DECAY)
 

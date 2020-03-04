@@ -14,13 +14,13 @@ class Identity(nn.Module):
 
 
 class AlexNet(nn.Module):
-    def __init__(self, num_classes=10, module=None):
+    def __init__(self, color, num_classes=10, module=None):
         super(AlexNet, self).__init__()
         self.features = nn.Sequential(
-            nn.Conv2d(3, 24, 3, padding=1),  # Conv1
+            nn.Conv2d(color, 24, 3, padding=1),  # Conv1
             nn.ReLU(inplace=True),
             nn.MaxPool2d(2, 2),  # Pool1
-            nn.Conv2d(24, 96, 3, padding=1),  # Conv2
+            nn.Conv2d(24, 96,  3, padding=1),  # Conv2
             nn.ReLU(inplace=True),
             nn.MaxPool2d(2, 2),  # Pool2
             nn.Conv2d(96, 192, 3, padding=1),  # Conv3
@@ -29,12 +29,13 @@ class AlexNet(nn.Module):
             nn.ReLU(inplace=True),
             nn.Conv2d(192, 96, 3, padding=1),  # Conv5
             nn.ReLU(inplace=True),
+            dcm.IntegratedDCM2d(96, 96, (1, 3)),
             nn.MaxPool2d(2, 2),  # Pool3
         )
 
-        self.module = Identity()
-        if module == "dcm":
-            self.module = dcm.IntegratedDCM2d(96, 96, (1, 3))
+        # self.module = Identity()
+        # if module == "dcm":
+        #     self.module = dcm.IntegratedDCM2d(96, 96, (1, 3))
 
         self.classifier = nn.Sequential(
             nn.Dropout(),
@@ -48,11 +49,11 @@ class AlexNet(nn.Module):
 
     def forward(self, x):
         x = self.features(x)
-        x = self.module(x)
-        x = x.view(x.size(0), 96 * 4 * 4)  # 寮€濮嬪叏杩炴帴灞傜殑璁＄畻
+        # x = self.module(x)
+        x = x.view(x.size(0), 96 * 4 * 4)
         x = self.classifier(x)
         return x
 
 
-def getDefaultAlexNet(module=None):
-    return AlexNet(module=module)
+def getDefaultAlexNet(color=1, num_classes=10, module=None):
+    return AlexNet(color, num_classes=num_classes, module=module)
