@@ -1,5 +1,5 @@
 visdom==0.1.8.9
-numpy==1.15.3
+numpy==1.22.0
 requests==2.22.0
 torchvision==0.2.1
 torch==0.4.1
